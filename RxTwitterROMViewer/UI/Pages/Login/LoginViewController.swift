@@ -1,5 +1,5 @@
 //
-//  TimelineViewController.swift
+//  LoginViewController.swift
 //  RxTwitterROMViewer
 //
 //  Created by 村脇光洋 on 2019/06/19.
@@ -8,23 +8,24 @@
 
 import UIKit
 
+import RxCocoa
 import RxSwift
 import ReactorKit
 
-final class TimelineViewController: UIViewController , ReactorKit.View {
+final class LoginViewController: UIViewController , ReactorKit.View {
     
     var disposeBag = DisposeBag()
     
-    private var mainView: TimelineView {
-        return self.view as! TimelineView
+    private var mainView: LoginView {
+        return self.view as! LoginView
     }
     
     override func loadView() {
-        self.view = TimelineView()
+        self.view = LoginView()
     }
     
     init() {
-        defer { self.reactor = TimelineReactor() }
+        defer { self.reactor = LoginReactor() }
         super.init(nibName: nil, bundle: nil)
         
         title = "タイムライン"
@@ -34,7 +35,7 @@ final class TimelineViewController: UIViewController , ReactorKit.View {
         super.init(coder: aDecoder)
     }
     
-    func bind(reactor: TimelineReactor) {
+    func bind(reactor: LoginReactor) {
         
     }
 }

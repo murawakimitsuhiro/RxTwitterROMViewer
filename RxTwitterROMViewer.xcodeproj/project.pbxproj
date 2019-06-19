@@ -7,21 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93D28C30EE1A0B6716F54C4B /* Pods_RxTwitterROMViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85D2CA43097FCF244A0BA9CE /* Pods_RxTwitterROMViewer.framework */; };
 		EAD7E1B022B9E1C200F223C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD7E1AF22B9E1C200F223C7 /* AppDelegate.swift */; };
-		EAD7E1B222B9E1C200F223C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD7E1B122B9E1C200F223C7 /* ViewController.swift */; };
-		EAD7E1B522B9E1C200F223C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAD7E1B322B9E1C200F223C7 /* Main.storyboard */; };
 		EAD7E1B722B9E1C500F223C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAD7E1B622B9E1C500F223C7 /* Assets.xcassets */; };
 		EAD7E1BA22B9E1C500F223C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAD7E1B822B9E1C500F223C7 /* LaunchScreen.storyboard */; };
+		EAD7E1D722B9F8C800F223C7 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD7E1D622B9F8C800F223C7 /* TimelineViewController.swift */; };
+		EAD7E1D922B9F9EB00F223C7 /* TimelineReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD7E1D822B9F9EB00F223C7 /* TimelineReactor.swift */; };
+		EAD7E1DB22B9F9F400F223C7 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD7E1DA22B9F9F400F223C7 /* TimelineView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		85D2CA43097FCF244A0BA9CE /* Pods_RxTwitterROMViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxTwitterROMViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		861C8ED1C512180F65257231 /* Pods-RxTwitterROMViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxTwitterROMViewer.release.xcconfig"; path = "Target Support Files/Pods-RxTwitterROMViewer/Pods-RxTwitterROMViewer.release.xcconfig"; sourceTree = "<group>"; };
+		DAAF7CA6F04DB56DB2F04328 /* Pods-RxTwitterROMViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxTwitterROMViewer.debug.xcconfig"; path = "Target Support Files/Pods-RxTwitterROMViewer/Pods-RxTwitterROMViewer.debug.xcconfig"; sourceTree = "<group>"; };
 		EAD7E1AC22B9E1C200F223C7 /* RxTwitterROMViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxTwitterROMViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAD7E1AF22B9E1C200F223C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EAD7E1B122B9E1C200F223C7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		EAD7E1B422B9E1C200F223C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EAD7E1B622B9E1C500F223C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EAD7E1B922B9E1C500F223C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EAD7E1BB22B9E1C500F223C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAD7E1C622B9EF3800F223C7 /* RxTwitterROMViewer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RxTwitterROMViewer-Bridging-Header.h"; sourceTree = "<group>"; };
+		EAD7E1D622B9F8C800F223C7 /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
+		EAD7E1D822B9F9EB00F223C7 /* TimelineReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineReactor.swift; sourceTree = "<group>"; };
+		EAD7E1DA22B9F9F400F223C7 /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +36,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93D28C30EE1A0B6716F54C4B /* Pods_RxTwitterROMViewer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01FE126D47B79F9086BFEF06 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DAAF7CA6F04DB56DB2F04328 /* Pods-RxTwitterROMViewer.debug.xcconfig */,
+				861C8ED1C512180F65257231 /* Pods-RxTwitterROMViewer.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		99E9032B084AE720873FD5F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				85D2CA43097FCF244A0BA9CE /* Pods_RxTwitterROMViewer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EAD7E1A322B9E1C200F223C7 = {
 			isa = PBXGroup;
 			children = (
 				EAD7E1AE22B9E1C200F223C7 /* RxTwitterROMViewer */,
 				EAD7E1AD22B9E1C200F223C7 /* Products */,
+				01FE126D47B79F9086BFEF06 /* Pods */,
+				99E9032B084AE720873FD5F4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +81,104 @@
 		EAD7E1AE22B9E1C200F223C7 /* RxTwitterROMViewer */ = {
 			isa = PBXGroup;
 			children = (
+				EAD7E1CE22B9F7A300F223C7 /* Models */,
+				EAD7E1CD22B9F79B00F223C7 /* Networkings */,
+				EAD7E1CC22B9F65400F223C7 /* Services */,
+				EAD7E1CA22B9F61400F223C7 /* Extensions */,
+				EAD7E1C822B9F5EE00F223C7 /* Resources */,
+				EAD7E1D122B9F7D600F223C7 /* UI */,
 				EAD7E1AF22B9E1C200F223C7 /* AppDelegate.swift */,
-				EAD7E1B122B9E1C200F223C7 /* ViewController.swift */,
-				EAD7E1B322B9E1C200F223C7 /* Main.storyboard */,
-				EAD7E1B622B9E1C500F223C7 /* Assets.xcassets */,
 				EAD7E1B822B9E1C500F223C7 /* LaunchScreen.storyboard */,
 				EAD7E1BB22B9E1C500F223C7 /* Info.plist */,
+				EAD7E1C622B9EF3800F223C7 /* RxTwitterROMViewer-Bridging-Header.h */,
 			);
 			path = RxTwitterROMViewer;
+			sourceTree = "<group>";
+		};
+		EAD7E1C822B9F5EE00F223C7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EAD7E1B622B9E1C500F223C7 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		EAD7E1CA22B9F61400F223C7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EAD7E1CB22B9F61C00F223C7 /* Rx */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EAD7E1CB22B9F61C00F223C7 /* Rx */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Rx;
+			sourceTree = "<group>";
+		};
+		EAD7E1CC22B9F65400F223C7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		EAD7E1CD22B9F79B00F223C7 /* Networkings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networkings;
+			sourceTree = "<group>";
+		};
+		EAD7E1CE22B9F7A300F223C7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EAD7E1D122B9F7D600F223C7 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				EAD7E1D422B9F7F400F223C7 /* Pages */,
+				EAD7E1D322B9F7EA00F223C7 /* CustomViews */,
+				EAD7E1D222B9F7E200F223C7 /* CustomCells */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		EAD7E1D222B9F7E200F223C7 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		EAD7E1D322B9F7EA00F223C7 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		EAD7E1D422B9F7F400F223C7 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				EAD7E1D522B9F8AC00F223C7 /* Timeline */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		EAD7E1D522B9F8AC00F223C7 /* Timeline */ = {
+			isa = PBXGroup;
+			children = (
+				EAD7E1D822B9F9EB00F223C7 /* TimelineReactor.swift */,
+				EAD7E1D622B9F8C800F223C7 /* TimelineViewController.swift */,
+				EAD7E1DA22B9F9F400F223C7 /* TimelineView.swift */,
+			);
+			path = Timeline;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +188,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EAD7E1BE22B9E1C500F223C7 /* Build configuration list for PBXNativeTarget "RxTwitterROMViewer" */;
 			buildPhases = (
+				228937539845B4F92D054CD7 /* [CP] Check Pods Manifest.lock */,
 				EAD7E1A822B9E1C200F223C7 /* Sources */,
 				EAD7E1A922B9E1C200F223C7 /* Frameworks */,
 				EAD7E1AA22B9E1C200F223C7 /* Resources */,
+				3BD42A0637E490BA67FECE0B /* [CP] Embed Pods Frameworks */,
+				6B740B1102D5BD4C6D51B8FA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -96,6 +216,7 @@
 				TargetAttributes = {
 					EAD7E1AB22B9E1C200F223C7 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -124,33 +245,125 @@
 			files = (
 				EAD7E1BA22B9E1C500F223C7 /* LaunchScreen.storyboard in Resources */,
 				EAD7E1B722B9E1C500F223C7 /* Assets.xcassets in Resources */,
-				EAD7E1B522B9E1C200F223C7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		228937539845B4F92D054CD7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RxTwitterROMViewer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3BD42A0637E490BA67FECE0B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RxTwitterROMViewer/Pods-RxTwitterROMViewer-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ESPullToRefresh/ESPullToRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/PinLayout/PinLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactorKit/ReactorKit.framework",
+				"${BUILT_PRODUCTS_DIR}/ReusableKit/ReusableKit.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
+				"${BUILT_PRODUCTS_DIR}/RxOptional/RxOptional.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxViewController/RxViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
+				"${BUILT_PRODUCTS_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework",
+				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ESPullToRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PinLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactorKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReusableKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxOptional.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTTAttributedLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RxTwitterROMViewer/Pods-RxTwitterROMViewer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6B740B1102D5BD4C6D51B8FA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RxTwitterROMViewer/Pods-RxTwitterROMViewer-resources.sh",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterKitResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RxTwitterROMViewer/Pods-RxTwitterROMViewer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EAD7E1A822B9E1C200F223C7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAD7E1B222B9E1C200F223C7 /* ViewController.swift in Sources */,
 				EAD7E1B022B9E1C200F223C7 /* AppDelegate.swift in Sources */,
+				EAD7E1D722B9F8C800F223C7 /* TimelineViewController.swift in Sources */,
+				EAD7E1D922B9F9EB00F223C7 /* TimelineReactor.swift in Sources */,
+				EAD7E1DB22B9F9F400F223C7 /* TimelineView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		EAD7E1B322B9E1C200F223C7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EAD7E1B422B9E1C200F223C7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		EAD7E1B822B9E1C500F223C7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -280,17 +493,23 @@
 		};
 		EAD7E1BF22B9E1C500F223C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DAAF7CA6F04DB56DB2F04328 /* Pods-RxTwitterROMViewer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = 58347496P5;
 				INFOPLIST_FILE = RxTwitterROMViewer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ispec.murawaki.RxTwitterROMViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RxTwitterROMViewer/RxTwitterROMViewer-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -298,17 +517,22 @@
 		};
 		EAD7E1C022B9E1C500F223C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 861C8ED1C512180F65257231 /* Pods-RxTwitterROMViewer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = 58347496P5;
 				INFOPLIST_FILE = RxTwitterROMViewer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ispec.murawaki.RxTwitterROMViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RxTwitterROMViewer/RxTwitterROMViewer-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

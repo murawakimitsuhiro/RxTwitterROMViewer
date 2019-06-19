@@ -1,0 +1,92 @@
+PODS:
+  - ESPullToRefresh (2.9)
+  - Kingfisher (5.6.0)
+  - PinLayout (1.8.7)
+  - ReactorKit (2.0.1):
+    - RxSwift (~> 5.0)
+  - ReusableKit (3.0.0):
+    - ReusableKit/Core (= 3.0.0)
+  - ReusableKit/Core (3.0.0)
+  - ReusableKit/RxSwift (3.0.0):
+    - ReusableKit/Core
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
+  - RxCocoa (5.0.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxGesture (3.0.0):
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
+  - RxOptional (4.0.0):
+    - RxCocoa (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.0.0):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.0)
+  - RxViewController (1.0.0):
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
+  - SwiftDate (6.0.3)
+  - SwiftyUserDefaults (4.0.0)
+  - TTTAttributedLabel (2.0.0)
+  - TwitterCore (3.2.0)
+  - TwitterKit (3.4.2):
+    - TwitterCore (>= 3.2.0)
+
+DEPENDENCIES:
+  - ESPullToRefresh
+  - Kingfisher
+  - PinLayout
+  - ReactorKit
+  - ReusableKit
+  - ReusableKit/RxSwift
+  - RxCocoa
+  - RxGesture
+  - RxOptional
+  - RxSwift
+  - RxViewController
+  - SwiftDate
+  - SwiftyUserDefaults
+  - TTTAttributedLabel
+  - TwitterKit
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - ESPullToRefresh
+    - Kingfisher
+    - PinLayout
+    - ReactorKit
+    - ReusableKit
+    - RxCocoa
+    - RxGesture
+    - RxOptional
+    - RxRelay
+    - RxSwift
+    - RxViewController
+    - SwiftDate
+    - SwiftyUserDefaults
+    - TTTAttributedLabel
+    - TwitterCore
+    - TwitterKit
+
+SPEC CHECKSUMS:
+  ESPullToRefresh: ce058a36454a5032519cc9d8b45da217728cf104
+  Kingfisher: 1a50df6880a60bae26f3e21a0df3d17b892f5e0b
+  PinLayout: a0722a5c8f0e0168a9c091ffe4930dabf0c8582c
+  ReactorKit: a63c5e11e0fd32d59d672e54178b0ed2876b764b
+  ReusableKit: e5f853ad4652e411f96b6119b2488afa12929be6
+  RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
+  RxGesture: 0cd8e37ff9a266e1c31f46bcaed6de1c536bc81e
+  RxOptional: 9904e2219d59260c3c171273d475b2126de187e8
+  RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
+  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
+  RxViewController: 7330a46e5c31cd680db169da4c9fc8676e975a81
+  SwiftDate: 8d4f14bf1ef68e95094511504856547bf9e3e1a6
+  SwiftyUserDefaults: 6a1951df1daa19337862b677dd9a4b9bd4c288cd
+  TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
+  TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
+  TwitterKit: 5e4f41d70b9abdb41df5467f52d7aa2c0fd26ebb
+
+PODFILE CHECKSUM: a26efe27596608d6f6a1877a7d1d87f2fb95df21
+
+COCOAPODS: 1.6.2

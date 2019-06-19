@@ -15,8 +15,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        let TlVC = TimelineViewController()
+        let navC = UINavigationController(rootViewController: TlVC)
+        initWindow(rootViewController: navC)
+        
         return true
+    }
+    
+    private func initWindow(rootViewController: UIViewController) {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        window?.rootViewController = rootViewController
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

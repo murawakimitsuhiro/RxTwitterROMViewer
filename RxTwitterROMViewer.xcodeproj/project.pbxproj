@@ -66,6 +66,60 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EA70E99B22BBD3C800B6892F /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				EA70E9A022BBD4CB00B6892F /* Repositories */,
+				EA70E9A122BBD4D700B6892F /* UseCases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		EA70E99C22BBD40100B6892F /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				EA70E9A522BBE49200B6892F /* Networks */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		EA70E99D22BBD42F00B6892F /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				EAD7E1D122B9F7D600F223C7 /* UI */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		EA70E99E22BBD44500B6892F /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				EAD7E1CA22B9F61400F223C7 /* Extensions */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		EA70E9A022BBD4CB00B6892F /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		EA70E9A122BBD4D700B6892F /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		EA70E9A522BBE49200B6892F /* Networks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networks;
+			sourceTree = "<group>";
+		};
 		EAD7E1A322B9E1C200F223C7 = {
 			isa = PBXGroup;
 			children = (
@@ -87,12 +141,11 @@
 		EAD7E1AE22B9E1C200F223C7 /* RxTwitterROMViewer */ = {
 			isa = PBXGroup;
 			children = (
-				EAD7E1CE22B9F7A300F223C7 /* Models */,
-				EAD7E1CD22B9F79B00F223C7 /* Networkings */,
-				EAD7E1CC22B9F65400F223C7 /* Services */,
-				EAD7E1CA22B9F61400F223C7 /* Extensions */,
 				EAD7E1C822B9F5EE00F223C7 /* Resources */,
-				EAD7E1D122B9F7D600F223C7 /* UI */,
+				EA70E99E22BBD44500B6892F /* Utilities */,
+				EA70E99C22BBD40100B6892F /* Data */,
+				EA70E99B22BBD3C800B6892F /* Domain */,
+				EA70E99D22BBD42F00B6892F /* Presenter */,
 				EAD7E1AF22B9E1C200F223C7 /* AppDelegate.swift */,
 				EAD7E1B822B9E1C500F223C7 /* LaunchScreen.storyboard */,
 				EAD7E1BB22B9E1C500F223C7 /* Info.plist */,
@@ -122,27 +175,6 @@
 			children = (
 			);
 			path = Rx;
-			sourceTree = "<group>";
-		};
-		EAD7E1CC22B9F65400F223C7 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		EAD7E1CD22B9F79B00F223C7 /* Networkings */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Networkings;
-			sourceTree = "<group>";
-		};
-		EAD7E1CE22B9F7A300F223C7 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		EAD7E1D122B9F7D600F223C7 /* UI */ = {

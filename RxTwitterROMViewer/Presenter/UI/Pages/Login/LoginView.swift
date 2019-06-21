@@ -8,9 +8,16 @@
 
 import UIKit
 
+import RxCocoa
 import RxSwift
 
 import PinLayout
+
+extension Reactive where Base : LoginView {
+    var touchUpInsideLoginButton: ControlEvent<Void> {
+        return base.loginButton.rx.tap
+    }
+}
 
 final class LoginView: UIView {
     
@@ -19,7 +26,7 @@ final class LoginView: UIView {
         static let loginButtonSize = CGSize(width: 180, height: 50)
     }
     
-    private let loginButton = UIButton()
+    fileprivate let loginButton = UIButton()
     
     init() {
         super.init(frame: .zero)

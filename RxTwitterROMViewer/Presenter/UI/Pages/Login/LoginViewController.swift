@@ -59,7 +59,8 @@ final class LoginViewController: UIViewController , ReactorKit.View {
     
     private func presentTimelineViewController() {
         let timelineVC = TimelineViewController()
-        let navC = UINavigationController(rootViewController: timelineVC)
+        let navC = UINavigationController(navigationBarClass: TwitterNavigationBar.self, toolbarClass: nil)
+        navC.setViewControllers([timelineVC], animated: false)
         present(navC, animated: true, completion: nil)
     }
 }

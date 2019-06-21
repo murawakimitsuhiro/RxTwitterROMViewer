@@ -22,7 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let authUseCase = AuthUseCase(twitterAuthRepository: TwitterNetwork())
         if authUseCase.hasLoginUser() {
             let timelineVC = TimelineViewController()
-            initWindow(rootViewController: UINavigationController(rootViewController: timelineVC))
+            let navC = UINavigationController(navigationBarClass: TwitterNavigationBar.self, toolbarClass: UIToolbar.self)
+            navC.setViewControllers([timelineVC], animated: false)
+            initWindow(rootViewController: navC)
         } else {
             let loginVC = LoginViewController()
             initWindow(rootViewController: loginVC)

@@ -26,10 +26,12 @@ final class LoginViewController: UIViewController , ReactorKit.View {
     }
     
     init() {
-        defer { self.reactor = LoginReactor() }
-        super.init(nibName: nil, bundle: nil)
+        defer {
+            let authUseCase = AuthUseCase(twitterAuthRepository: TwitterNetwork())
+            self.reactor = LoginReactor(authUseCase: authUseCase)
+        }
         
-        title = "Login.."
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -37,5 +39,27 @@ final class LoginViewController: UIViewController , ReactorKit.View {
     }
     
     func bind(reactor: LoginReactor) {
+        // Action
+        mainView.rx.tapLoginButton
+            .map { Reactor.Action.login }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        
+        // State
+        reactor.state.map { $0.isLoggedIn }
+            .distinctUntilChanged()
+            .filter { $0 }
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] _ in
+                self?.presentTimelineViewController()
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func presentTimelineViewController() {
+        let timelineVC = TimelineViewController()
+        let navC = UINavigationController(rootViewController: timelineVC)
+        present(navC, animated: true, completion: nil)
     }
 }

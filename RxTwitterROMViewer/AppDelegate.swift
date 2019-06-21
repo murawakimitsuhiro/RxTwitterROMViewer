@@ -19,9 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         TWTRTwitter.sharedInstance().start(withConsumerKey: "0sZ5C9fiDcgnrEtkFNd4941gD", consumerSecret: "I8x8GA1ESAW2cvDqE7lFJ6smmxQ0xBPgqy4dlJGBGdRbBPLbHm")
         
-        let TlVC = LoginViewController()
-        let navC = UINavigationController(rootViewController: TlVC)
-        initWindow(rootViewController: navC)
+        let loginVC = LoginViewController()
+        initWindow(rootViewController: loginVC)
         
         return true
     }

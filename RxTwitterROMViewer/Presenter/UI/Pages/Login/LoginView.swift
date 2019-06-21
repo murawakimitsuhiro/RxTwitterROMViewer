@@ -14,7 +14,7 @@ import RxSwift
 import PinLayout
 
 extension Reactive where Base : LoginView {
-    var touchUpInsideLoginButton: ControlEvent<Void> {
+    var tapLoginButton: ControlEvent<Void> {
         return base.loginButton.rx.tap
     }
 }

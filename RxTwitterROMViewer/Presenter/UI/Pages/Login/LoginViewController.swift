@@ -10,6 +10,7 @@ import UIKit
 
 import RxCocoa
 import RxSwift
+import RxViewController
 import ReactorKit
 
 final class LoginViewController: UIViewController , ReactorKit.View {
@@ -28,7 +29,7 @@ final class LoginViewController: UIViewController , ReactorKit.View {
         defer { self.reactor = LoginReactor() }
         super.init(nibName: nil, bundle: nil)
         
-        title = "タイムライン"
+        title = "Login.."
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -36,6 +37,15 @@ final class LoginViewController: UIViewController , ReactorKit.View {
     }
     
     func bind(reactor: LoginReactor) {
-        
+        self.rx.viewWillAppear
+            .subscribe(onNext: { _ in
+                let usecase = AuthUseCase(twitterAuthRepository: TwitterNetwork())
+                usecase.loginTwitter()
+                    .subscribe(onSuccess: { _ in
+                        print("ほげえー")
+                    })
+                    .disposed(by: self.disposeBag)
+            })
+            .disposed(by: disposeBag)
     }
 }

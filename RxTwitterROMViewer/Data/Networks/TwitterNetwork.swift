@@ -10,6 +10,7 @@ import RxCocoa
 import RxSwift
 
 import TwitterKit
+import TwitterCore
 
 final class TwitterNetwork: TwitterAuthRepository {
     
@@ -17,7 +18,7 @@ final class TwitterNetwork: TwitterAuthRepository {
         case unknownSession
     }
     
-    func auth() -> Single<String> {
+    public func auth() -> Single<String> {
         return Single<String>.create { observer in
             TWTRTwitter.sharedInstance().logIn { (session, error) in
                 if let error = error {

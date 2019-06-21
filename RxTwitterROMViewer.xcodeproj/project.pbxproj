@@ -12,6 +12,7 @@
 		EA70E9A922BC801A00B6892F /* TwitterNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA70E9A822BC801A00B6892F /* TwitterNetwork.swift */; };
 		EA70E9AB22BC91F000B6892F /* AuthUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA70E9AA22BC91F000B6892F /* AuthUseCase.swift */; };
 		EA70E9AD22BC9ACF00B6892F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA70E9AC22BC9ACF00B6892F /* Default-568h@2x.png */; };
+		EA70E9AF22BCB2FD00B6892F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA70E9AE22BCB2FD00B6892F /* Colors.swift */; };
 		EAD7E1B022B9E1C200F223C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD7E1AF22B9E1C200F223C7 /* AppDelegate.swift */; };
 		EAD7E1B722B9E1C500F223C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAD7E1B622B9E1C500F223C7 /* Assets.xcassets */; };
 		EAD7E1BA22B9E1C500F223C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAD7E1B822B9E1C500F223C7 /* LaunchScreen.storyboard */; };
@@ -31,6 +32,7 @@
 		EA70E9A822BC801A00B6892F /* TwitterNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterNetwork.swift; sourceTree = "<group>"; };
 		EA70E9AA22BC91F000B6892F /* AuthUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUseCase.swift; sourceTree = "<group>"; };
 		EA70E9AC22BC9ACF00B6892F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		EA70E9AE22BCB2FD00B6892F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		EAD7E1AC22B9E1C200F223C7 /* RxTwitterROMViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxTwitterROMViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAD7E1AF22B9E1C200F223C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAD7E1B622B9E1C500F223C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				EAD7E1CA22B9F61400F223C7 /* Extensions */,
+				EA70E9AE22BCB2FD00B6892F /* Colors.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAD7E1E122B9FDE200F223C7 /* LoginViewController.swift in Sources */,
+				EA70E9AF22BCB2FD00B6892F /* Colors.swift in Sources */,
 				EAD7E1E322B9FE3000F223C7 /* LoginView.swift in Sources */,
 				EAD7E1B022B9E1C200F223C7 /* AppDelegate.swift in Sources */,
 				EA70E9AB22BC91F000B6892F /* AuthUseCase.swift in Sources */,

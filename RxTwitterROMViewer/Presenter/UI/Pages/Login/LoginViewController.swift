@@ -37,15 +37,5 @@ final class LoginViewController: UIViewController , ReactorKit.View {
     }
     
     func bind(reactor: LoginReactor) {
-        self.rx.viewWillAppear
-            .subscribe(onNext: { _ in
-                let usecase = AuthUseCase(twitterAuthRepository: TwitterNetwork())
-                usecase.loginTwitter()
-                    .subscribe(onSuccess: { _ in
-                        print("ほげえー")
-                    })
-                    .disposed(by: self.disposeBag)
-            })
-            .disposed(by: disposeBag)
     }
 }

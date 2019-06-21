@@ -18,6 +18,10 @@ final class TwitterNetwork: TwitterAuthRepository {
         case unknownSession
     }
     
+    public func hasLoggedInUser() -> Bool {
+        return TWTRTwitter.sharedInstance().sessionStore.hasLoggedInUsers()
+    }
+    
     public func auth() -> Single<String> {
         return Single<String>.create { observer in
             TWTRTwitter.sharedInstance().logIn { (session, error) in

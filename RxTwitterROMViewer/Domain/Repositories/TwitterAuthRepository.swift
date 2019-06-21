@@ -11,5 +11,6 @@ import RxSwift
 
 protocol TwitterAuthRepository: class {
     /// Twitter Login, get AuthToken
-    func auth() -> Single<(String)>
+    func auth() -> Single<String>
+    func hasLoggedInUser() -> Bool
 }

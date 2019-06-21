@@ -16,6 +16,10 @@ final class AuthUseCase {
         self.twitterAuthRepository = twitterAuthRepository
     }
     
+    public func hasLoginUser() -> Bool {
+        return twitterAuthRepository.hasLoggedInUser()
+    }
+    
     public func loginTwitter() -> Single<Void> {
         return twitterAuthRepository.auth().map{ _ in }
     }

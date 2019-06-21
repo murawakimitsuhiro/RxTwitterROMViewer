@@ -79,6 +79,7 @@
 		EA70E99B22BBD3C800B6892F /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				EAC3AF9222BD2F3E00EE609D /* Entities */,
 				EA70E9A022BBD4CB00B6892F /* Repositories */,
 				EA70E9A122BBD4D700B6892F /* UseCases */,
 			);
@@ -132,6 +133,13 @@
 				EA70E9A822BC801A00B6892F /* TwitterNetwork.swift */,
 			);
 			path = Networks;
+			sourceTree = "<group>";
+		};
+		EAC3AF9222BD2F3E00EE609D /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		EAD7E1A322B9E1C200F223C7 = {

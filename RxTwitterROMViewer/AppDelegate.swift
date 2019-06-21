@@ -19,8 +19,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         TWTRTwitter.sharedInstance().start(withConsumerKey: "0sZ5C9fiDcgnrEtkFNd4941gD", consumerSecret: "I8x8GA1ESAW2cvDqE7lFJ6smmxQ0xBPgqy4dlJGBGdRbBPLbHm")
         
-        let loginVC = LoginViewController()
-        initWindow(rootViewController: loginVC)
+        let authUseCase = AuthUseCase(twitterAuthRepository: TwitterNetwork())
+        if authUseCase.hasLoginUser() {
+            let timelineVC = TimelineViewController()
+            initWindow(rootViewController: UINavigationController(rootViewController: timelineVC))
+        } else {
+            let loginVC = LoginViewController()
+            initWindow(rootViewController: loginVC)
+        }
         
         return true
     }

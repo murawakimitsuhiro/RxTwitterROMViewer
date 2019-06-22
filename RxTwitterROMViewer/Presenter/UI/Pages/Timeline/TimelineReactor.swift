@@ -10,8 +10,13 @@ import ReactorKit
 
 final class TimelineReactor: Reactor {
     
-    enum Action {}
-    enum Mutation {}
+    enum Action {
+        case reflseshTweets
+    }
+    
+    enum Mutation {
+        case setLatestTweets
+    }
     
     let initialState = State()
     

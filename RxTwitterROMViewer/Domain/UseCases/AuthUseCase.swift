@@ -16,7 +16,7 @@ final class AuthUseCase {
         self.twitterAuthRepository = twitterAuthRepository
     }
     
-    public func hasLoginUser() -> Bool {
+    public var hasLoginUser: Bool {
         return twitterAuthRepository.hasLoggedInUser()
     }
     

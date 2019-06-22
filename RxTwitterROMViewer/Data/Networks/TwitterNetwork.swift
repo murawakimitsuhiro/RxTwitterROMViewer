@@ -12,10 +12,20 @@ import RxSwift
 import TwitterKit
 import TwitterCore
 
-final class TwitterNetwork: TwitterAuthRepository {
+final class TwitterNetwork: TwitterAuthRepository, TweetsRepository {
     
     enum ErrorType: Error {
         case unknownSession
+    }
+    
+    private enum Const {
+        static let baseUrl = URL(string: "https://api.twitter.com/1.1/statuses/")
+    }
+    
+    private let client: TWTRAPIClient
+    
+    init() {
+        client = TWTRAPIClient()
     }
     
     public func hasLoggedInUser() -> Bool {
@@ -40,5 +50,24 @@ final class TwitterNetwork: TwitterAuthRepository {
             
             return Disposables.create()
         }
+    }
+    
+    func getTimeline(maxId: Int?) -> Single<[TweetEntity]> {
+        guard let url = URL(string: "home_timeline.json", relativeTo: Const.baseUrl) else {
+            fatalError("can not init url")
+        }
+        
+        let param: [String: Any] = [:]
+        
+        return client.rx.request(url: url,
+                          method: .get,
+                          params: param)
+            .map { data in
+                print(data)
+                
+                // Todo
+                
+                return []
+            }
     }
 }

@@ -20,15 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         TWTRTwitter.sharedInstance().start(withConsumerKey: "0sZ5C9fiDcgnrEtkFNd4941gD", consumerSecret: "I8x8GA1ESAW2cvDqE7lFJ6smmxQ0xBPgqy4dlJGBGdRbBPLbHm")
         
         let authUseCase = AuthUseCase(twitterAuthRepository: TwitterNetwork())
-        if authUseCase.hasLoginUser() {
-            let timelineVC = TimelineViewController()
-            let navC = UINavigationController(navigationBarClass: TwitterNavigationBar.self, toolbarClass: UIToolbar.self)
-            navC.setViewControllers([timelineVC], animated: false)
-            initWindow(rootViewController: navC)
-        } else {
+//        if authUseCase.hasLoginUser {
+//            let timelineVC = TimelineViewController()
+//            let navC = UINavigationController(navigationBarClass: TwitterNavigationBar.self, toolbarClass: UIToolbar.self)
+//            navC.setViewControllers([timelineVC], animated: false)
+//            initWindow(rootViewController: navC)
+//        } else {
             let loginVC = LoginViewController()
             initWindow(rootViewController: loginVC)
-        }
+//        }
         
         return true
     }

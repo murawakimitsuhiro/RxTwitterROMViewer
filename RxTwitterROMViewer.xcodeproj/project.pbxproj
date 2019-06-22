@@ -13,6 +13,10 @@
 		EA70E9AB22BC91F000B6892F /* AuthUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA70E9AA22BC91F000B6892F /* AuthUseCase.swift */; };
 		EA70E9AF22BCB2FD00B6892F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA70E9AE22BCB2FD00B6892F /* Colors.swift */; };
 		EAC3AF9622BD33F300EE609D /* TwitterNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC3AF9522BD33F300EE609D /* TwitterNavigationBar.swift */; };
+		EAC3AF9822BD454900EE609D /* TimelineUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC3AF9722BD454900EE609D /* TimelineUseCase.swift */; };
+		EAC3AF9A22BD457100EE609D /* TweetsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC3AF9922BD457100EE609D /* TweetsRepository.swift */; };
+		EAC3AF9C22BD478F00EE609D /* TweetEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC3AF9B22BD478F00EE609D /* TweetEntity.swift */; };
+		EAC3AF9E22BE6AF700EE609D /* TWTRClient+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC3AF9D22BE6AF700EE609D /* TWTRClient+Rx.swift */; };
 		EAD7E1B022B9E1C200F223C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD7E1AF22B9E1C200F223C7 /* AppDelegate.swift */; };
 		EAD7E1B722B9E1C500F223C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAD7E1B622B9E1C500F223C7 /* Assets.xcassets */; };
 		EAD7E1BA22B9E1C500F223C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAD7E1B822B9E1C500F223C7 /* LaunchScreen.storyboard */; };
@@ -33,6 +37,10 @@
 		EA70E9AA22BC91F000B6892F /* AuthUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUseCase.swift; sourceTree = "<group>"; };
 		EA70E9AE22BCB2FD00B6892F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		EAC3AF9522BD33F300EE609D /* TwitterNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterNavigationBar.swift; sourceTree = "<group>"; };
+		EAC3AF9722BD454900EE609D /* TimelineUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineUseCase.swift; sourceTree = "<group>"; };
+		EAC3AF9922BD457100EE609D /* TweetsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetsRepository.swift; sourceTree = "<group>"; };
+		EAC3AF9B22BD478F00EE609D /* TweetEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetEntity.swift; sourceTree = "<group>"; };
+		EAC3AF9D22BE6AF700EE609D /* TWTRClient+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TWTRClient+Rx.swift"; sourceTree = "<group>"; };
 		EAD7E1AC22B9E1C200F223C7 /* RxTwitterROMViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxTwitterROMViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAD7E1AF22B9E1C200F223C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAD7E1B622B9E1C500F223C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -115,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				EA70E9A622BC7EF200B6892F /* TwitterAuthRepository.swift */,
+				EAC3AF9922BD457100EE609D /* TweetsRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -123,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				EA70E9AA22BC91F000B6892F /* AuthUseCase.swift */,
+				EAC3AF9722BD454900EE609D /* TimelineUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -138,6 +148,7 @@
 		EAC3AF9222BD2F3E00EE609D /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				EAC3AF9B22BD478F00EE609D /* TweetEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -195,6 +206,7 @@
 		EAD7E1CB22B9F61C00F223C7 /* Rx */ = {
 			isa = PBXGroup;
 			children = (
+				EAC3AF9D22BE6AF700EE609D /* TWTRClient+Rx.swift */,
 			);
 			path = Rx;
 			sourceTree = "<group>";
@@ -426,14 +438,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAC3AF9822BD454900EE609D /* TimelineUseCase.swift in Sources */,
 				EAD7E1E122B9FDE200F223C7 /* LoginViewController.swift in Sources */,
 				EA70E9AF22BCB2FD00B6892F /* Colors.swift in Sources */,
+				EAC3AF9E22BE6AF700EE609D /* TWTRClient+Rx.swift in Sources */,
 				EAD7E1E322B9FE3000F223C7 /* LoginView.swift in Sources */,
+				EAC3AF9C22BD478F00EE609D /* TweetEntity.swift in Sources */,
 				EAD7E1B022B9E1C200F223C7 /* AppDelegate.swift in Sources */,
 				EA70E9AB22BC91F000B6892F /* AuthUseCase.swift in Sources */,
 				EA70E9A722BC7EF200B6892F /* TwitterAuthRepository.swift in Sources */,
 				EAD7E1D722B9F8C800F223C7 /* TimelineViewController.swift in Sources */,
 				EAD7E1DF22B9FDC700F223C7 /* LoginReactor.swift in Sources */,
+				EAC3AF9A22BD457100EE609D /* TweetsRepository.swift in Sources */,
 				EA70E9A922BC801A00B6892F /* TwitterNetwork.swift in Sources */,
 				EAC3AF9622BD33F300EE609D /* TwitterNavigationBar.swift in Sources */,
 				EAD7E1D922B9F9EB00F223C7 /* TimelineReactor.swift in Sources */,

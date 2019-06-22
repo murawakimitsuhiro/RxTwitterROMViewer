@@ -35,6 +35,9 @@ final class TimelineViewController: UIViewController , ReactorKit.View {
     }
     
     func bind(reactor: TimelineReactor) {
-        
+        let network = TwitterNetwork()
+        network.getTimeline(maxId: nil)
+            .subscribe()
+            .disposed(by: disposeBag)
     }
 }

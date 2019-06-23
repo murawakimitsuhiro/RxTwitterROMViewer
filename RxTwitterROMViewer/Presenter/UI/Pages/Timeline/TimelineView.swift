@@ -21,6 +21,9 @@ final class TimelineView: UIView {
     init() {
         super.init(frame: .zero)
         
+        tableView.estimatedRowHeight = 90
+        tableView.rowHeight = UITableView.automaticDimension
+        
         addSubview(tableView)
     }
     

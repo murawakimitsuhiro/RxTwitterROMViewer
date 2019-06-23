@@ -56,11 +56,9 @@ final class TimelineViewController: UIViewController , ReactorKit.View {
         
         
         // State
-        reactor.state.map { $0.tweetEntities }
-            .observeOn(MainScheduler.instance)
-            .bind(to: mainView.tableView.rx.items(Reusable.tweetCell)) { _, tweet, cell in
-                print(tweet.text)
-                cell.textLabel?.text = tweet.text
+        reactor.state.map { $0.tweetCellReactors }
+            .bind(to: mainView.tableView.rx.items(Reusable.tweetCell)) { _, reactor, cell in
+                cell.reactor = reactor
             }
             .disposed(by: disposeBag)
     }

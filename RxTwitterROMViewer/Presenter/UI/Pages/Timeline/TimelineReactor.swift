@@ -23,7 +23,7 @@ final class TimelineReactor: Reactor {
     let initialState = State()
     
     struct State {
-        var tweetEntities: [TweetEntity] = []
+        var tweetCellReactors: [TweetCellReactor] = []
     }
     
     let timelineUseCase: TimelineUseCase
@@ -38,11 +38,6 @@ final class TimelineReactor: Reactor {
             return timelineUseCase
                 .getLatestTimeline()
                 .asObservable()
-                .catchError({ (error) -> Observable<[TweetEntity]> in
-                    print("erroor", error)
-                    
-                    throw error
-                })
                 .map{ Mutation.setLatestTweets($0) }
         }
     }
@@ -52,7 +47,7 @@ final class TimelineReactor: Reactor {
         
         switch mutation {
         case let .setLatestTweets(tweetEntities):
-            state.tweetEntities = tweetEntities
+            state.tweetCellReactors = tweetEntities.map { TweetCellReactor($0) }
             return state
         }
     }

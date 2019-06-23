@@ -9,4 +9,5 @@
 struct TweetEntity: Codable {
     let text: String
     let createdAt: Date
+    let user: TwitterUserEntity
 }

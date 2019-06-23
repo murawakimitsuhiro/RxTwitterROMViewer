@@ -11,8 +11,6 @@ import RxSwift
 
 import TwitterKit
 
-//extension TWTRAPIClient: ReactiveCompatible {}
-
 extension Reactive where Base: TWTRAPIClient {
     
     public enum Method: String {

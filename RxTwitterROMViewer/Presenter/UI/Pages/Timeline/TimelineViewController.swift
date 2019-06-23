@@ -9,6 +9,7 @@
 import UIKit
 
 import RxSwift
+import RxViewController
 import ReactorKit
 
 final class TimelineViewController: UIViewController , ReactorKit.View {
@@ -24,7 +25,10 @@ final class TimelineViewController: UIViewController , ReactorKit.View {
     }
     
     init() {
-        defer { self.reactor = TimelineReactor() }
+        defer {
+            let tlUseCase = TimelineUseCase(tweetsRepository: TwitterNetwork())
+            self.reactor = TimelineReactor(timelineUseCase: tlUseCase)
+        }
         super.init(nibName: nil, bundle: nil)
         
         title = "タイムライン"
@@ -35,16 +39,18 @@ final class TimelineViewController: UIViewController , ReactorKit.View {
     }
     
     func bind(reactor: TimelineReactor) {
+        // Action
+        rx.viewWillAppear
+            .map { _ in Reactor.Action.reflseshTweets }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
         
-        // Todo testt
-        let network = TwitterNetwork()
-        network.getTimeline(maxId: nil)
-            .subscribe(onSuccess: { tweets in
-                print("success")
+        
+        // State
+        reactor.state.map { $0.tweetEntities }
+            .subscribe(onNext: { tweets in
+                print("geted tweets")
                 print(tweets)
-            }, onError: { (error) in
-                print("error")
-                print(error)
             })
             .disposed(by: disposeBag)
     }

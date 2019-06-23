@@ -32,14 +32,17 @@ final class TwitterNetwork: TwitterAuthRepository, TweetsRepository {
         return nil
     }
     
-    private let decoder: JSONDecoder = {
+    private let decoder: JSONDecoder
+    
+    init() {
         let formatter = DateFormatter()
         formatter.dateFormat = "EEE MMM dd HH:mm:ss Z yyyy"
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         decoder.dateDecodingStrategy = .formatted(formatter)
-        return decoder
-    }()
+        
+        self.decoder = decoder
+    }
 
     public func hasLoggedInUser() -> Bool {
         return TWTRTwitter.sharedInstance().sessionStore.hasLoggedInUsers()
@@ -77,13 +80,12 @@ final class TwitterNetwork: TwitterAuthRepository, TweetsRepository {
                           method: .get,
                           params: param)
             .map { data in
+                if let data = data,
+                    let tweets = try? self.decoder.decode([TweetEntity].self, from: data) {
+                    return tweets
+                }
                 
-                let tweets = try? self.decoder.decode([TweetEntity].self, from: data!)
-                print(tweets)
-                
-                // Todo
-                
-                return []
+                throw ErrorType.responseDataEmpty
             }
     }
 }

@@ -64,10 +64,7 @@ final class TweetCell: UITableViewCell, ReactorKit.View {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        layout()
-    }
-    
-    private func layout() {
+        
         iconImageView.pin
             .topLeft(Const.contentPadding)
             .size(Const.iconSize)
@@ -87,7 +84,7 @@ final class TweetCell: UITableViewCell, ReactorKit.View {
     override func sizeThatFits(_ size: CGSize) -> CGSize {
         contentView.pin.width(size.width)
         
-//        setNeedsLayout()
+        setNeedsLayout()
         layoutIfNeeded()
         
         return CGSize(

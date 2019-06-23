@@ -49,7 +49,11 @@ final class TimelineViewController: UIViewController , ReactorKit.View {
     
     func bind(reactor: TimelineReactor) {
         // Action
-        rx.viewWillAppear
+        Observable
+            .merge(
+                rx.viewWillAppear.map { _ in } ,
+                mainView.rx.pullToReflesh.map {}
+            )
             .map { _ in Reactor.Action.reflseshTweets }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
@@ -57,9 +61,18 @@ final class TimelineViewController: UIViewController , ReactorKit.View {
         
         // State
         reactor.state.map { $0.tweetCellReactors }
+//            .observeOn(MainScheduler.instance)
             .bind(to: mainView.tableView.rx.items(Reusable.tweetCell)) { _, reactor, cell in
                 cell.reactor = reactor
             }
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.isRefleshing }
+            .distinctUntilChanged()
+//            .observeOn(MainScheduler.instance)
+            .filter { !$0 }
+            .skip(1)
+            .bind(to: mainView.rx.pullToRefleshing)
             .disposed(by: disposeBag)
     }
 }

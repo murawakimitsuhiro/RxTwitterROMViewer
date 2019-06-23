@@ -38,6 +38,11 @@ final class TimelineReactor: Reactor {
             return timelineUseCase
                 .getLatestTimeline()
                 .asObservable()
+                .catchError({ (error) -> Observable<[TweetEntity]> in
+                    print("erroor", error)
+                    
+                    throw error
+                })
                 .map{ Mutation.setLatestTweets($0) }
         }
     }

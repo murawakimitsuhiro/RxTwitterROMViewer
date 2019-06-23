@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		93D28C30EE1A0B6716F54C4B /* Pods_RxTwitterROMViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85D2CA43097FCF244A0BA9CE /* Pods_RxTwitterROMViewer.framework */; };
 		EA5156C322BF5932008FC429 /* TwitterUserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5156C222BF5932008FC429 /* TwitterUserEntity.swift */; };
+		EA5156C522BF7BE2008FC429 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5156C422BF7BE2008FC429 /* TweetCell.swift */; };
 		EA70E9A722BC7EF200B6892F /* TwitterAuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA70E9A622BC7EF200B6892F /* TwitterAuthRepository.swift */; };
 		EA70E9A922BC801A00B6892F /* TwitterNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA70E9A822BC801A00B6892F /* TwitterNetwork.swift */; };
 		EA70E9AB22BC91F000B6892F /* AuthUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA70E9AA22BC91F000B6892F /* AuthUseCase.swift */; };
@@ -34,6 +35,7 @@
 		861C8ED1C512180F65257231 /* Pods-RxTwitterROMViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxTwitterROMViewer.release.xcconfig"; path = "Target Support Files/Pods-RxTwitterROMViewer/Pods-RxTwitterROMViewer.release.xcconfig"; sourceTree = "<group>"; };
 		DAAF7CA6F04DB56DB2F04328 /* Pods-RxTwitterROMViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxTwitterROMViewer.debug.xcconfig"; path = "Target Support Files/Pods-RxTwitterROMViewer/Pods-RxTwitterROMViewer.debug.xcconfig"; sourceTree = "<group>"; };
 		EA5156C222BF5932008FC429 /* TwitterUserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterUserEntity.swift; sourceTree = "<group>"; };
+		EA5156C422BF7BE2008FC429 /* TweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 		EA70E9A622BC7EF200B6892F /* TwitterAuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAuthRepository.swift; sourceTree = "<group>"; };
 		EA70E9A822BC801A00B6892F /* TwitterNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterNetwork.swift; sourceTree = "<group>"; };
 		EA70E9AA22BC91F000B6892F /* AuthUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUseCase.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 		EAD7E1D222B9F7E200F223C7 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				EA5156C422BF7BE2008FC429 /* TweetCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 				EAC3AF9822BD454900EE609D /* TimelineUseCase.swift in Sources */,
 				EAD7E1E122B9FDE200F223C7 /* LoginViewController.swift in Sources */,
 				EA70E9AF22BCB2FD00B6892F /* Colors.swift in Sources */,
+				EA5156C522BF7BE2008FC429 /* TweetCell.swift in Sources */,
 				EAC3AF9E22BE6AF700EE609D /* TWTRClient+Rx.swift in Sources */,
 				EAD7E1E322B9FE3000F223C7 /* LoginView.swift in Sources */,
 				EAC3AF9C22BD478F00EE609D /* TweetEntity.swift in Sources */,

@@ -13,6 +13,5 @@ struct TwitterUserEntity: Codable {
     let name: String
     let screenName: String
     let description: String
-    let profileBackgroundImageUrlHttps: String
     let profileImageUrlHttps: String
 }

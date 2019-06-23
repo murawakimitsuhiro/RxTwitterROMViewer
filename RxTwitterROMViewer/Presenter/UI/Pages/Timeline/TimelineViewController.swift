@@ -8,13 +8,20 @@
 
 import UIKit
 
+import RxCocoa
 import RxSwift
 import RxViewController
+
 import ReactorKit
+import ReusableKit
 
 final class TimelineViewController: UIViewController , ReactorKit.View {
     
     var disposeBag = DisposeBag()
+    
+    enum Reusable {
+        static let tweetCell = ReusableCell<TweetCell>()
+    }
     
     private var mainView: TimelineView {
         return self.view as! TimelineView
@@ -22,6 +29,8 @@ final class TimelineViewController: UIViewController , ReactorKit.View {
     
     override func loadView() {
         self.view = TimelineView()
+        
+        mainView.tableView.register(Reusable.tweetCell)
     }
     
     init() {
@@ -48,10 +57,11 @@ final class TimelineViewController: UIViewController , ReactorKit.View {
         
         // State
         reactor.state.map { $0.tweetEntities }
-            .subscribe(onNext: { tweets in
-                print("geted tweets")
-                print(tweets)
-            })
+            .observeOn(MainScheduler.instance)
+            .bind(to: mainView.tableView.rx.items(Reusable.tweetCell)) { _, tweet, cell in
+                print(tweet.text)
+                cell.textLabel?.text = tweet.text
+            }
             .disposed(by: disposeBag)
     }
 }

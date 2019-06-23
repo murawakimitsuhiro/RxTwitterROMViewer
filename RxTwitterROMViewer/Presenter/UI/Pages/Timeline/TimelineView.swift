@@ -8,11 +8,15 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
+
+import ReusableKit
 import PinLayout
 
 final class TimelineView: UIView {
     
-    private let tableView = UITableView()
+    public let tableView = UITableView()
     
     init() {
         super.init(frame: .zero)

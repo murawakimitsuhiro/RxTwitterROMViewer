@@ -84,7 +84,7 @@ final class TwitterNetwork: TwitterAuthRepository, TweetsRepository {
                     let tweets = try? self.decoder.decode([TweetEntity].self, from: data) {
                     return tweets
                 }
-                
+
                 throw ErrorType.responseDataEmpty
             }
     }

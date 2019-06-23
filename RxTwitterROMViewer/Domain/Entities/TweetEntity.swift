@@ -7,5 +7,6 @@
 //
 
 struct TweetEntity: Codable {
-    let test: String
+    let text: String
+    let createdAt: Date
 }

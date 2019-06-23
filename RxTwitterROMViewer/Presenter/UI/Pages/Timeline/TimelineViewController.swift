@@ -35,9 +35,17 @@ final class TimelineViewController: UIViewController , ReactorKit.View {
     }
     
     func bind(reactor: TimelineReactor) {
+        
+        // Todo testt
         let network = TwitterNetwork()
         network.getTimeline(maxId: nil)
-            .subscribe()
+            .subscribe(onSuccess: { tweets in
+                print("success")
+                print(tweets)
+            }, onError: { (error) in
+                print("error")
+                print(error)
+            })
             .disposed(by: disposeBag)
     }
 }

@@ -16,18 +16,31 @@ final class TwitterNetwork: TwitterAuthRepository, TweetsRepository {
     
     enum ErrorType: Error {
         case unknownSession
+        case notLoggedIn
+        case responseDataEmpty
     }
     
     private enum Const {
         static let baseUrl = URL(string: "https://api.twitter.com/1.1/statuses/")
     }
     
-    private let client: TWTRAPIClient
-    
-    init() {
-        client = TWTRAPIClient()
+    private var loggedInClient: TWTRAPIClient? {
+        if let userID = TWTRTwitter.sharedInstance().sessionStore.session()?.userID {
+            return TWTRAPIClient(userID: userID)
+        }
+        
+        return nil
     }
     
+    private let decoder: JSONDecoder = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEE MMM dd HH:mm:ss Z yyyy"
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        decoder.dateDecodingStrategy = .formatted(formatter)
+        return decoder
+    }()
+
     public func hasLoggedInUser() -> Bool {
         return TWTRTwitter.sharedInstance().sessionStore.hasLoggedInUsers()
     }
@@ -53,17 +66,20 @@ final class TwitterNetwork: TwitterAuthRepository, TweetsRepository {
     }
     
     func getTimeline(maxId: Int?) -> Single<[TweetEntity]> {
-        guard let url = URL(string: "home_timeline.json", relativeTo: Const.baseUrl) else {
-            fatalError("can not init url")
-        }
-        
+        let url = URL(string: "home_timeline.json", relativeTo: Const.baseUrl)!
         let param: [String: Any] = [:]
+        
+        guard let client = loggedInClient else {
+            return Single.error(ErrorType.notLoggedIn)
+        }
         
         return client.rx.request(url: url,
                           method: .get,
                           params: param)
             .map { data in
-                print(data)
+                
+                let tweets = try? self.decoder.decode([TweetEntity].self, from: data!)
+                print(tweets)
                 
                 // Todo
                 

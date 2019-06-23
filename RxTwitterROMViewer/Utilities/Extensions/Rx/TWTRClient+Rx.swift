@@ -27,11 +27,11 @@ extension Reactive where Base: TWTRAPIClient {
         
         let request = base.urlRequest(withMethod: method.rawValue,
                         urlString: url.absoluteString,
-                        parameters: params, error: &error)
+                        parameters: params,
+                        error: &error)
         
-        return Single<Data?>.create { [weak base] observer in
-            guard let base = base else { return Disposables.create() }
-            base.sendTwitterRequest(request) { (_, data, connectionError) in
+        return Single<Data?>.create { observer in
+            self.base.sendTwitterRequest(request) { (_, data, connectionError) in
                 if let error = error {
                     observer(.error(error))
                 }

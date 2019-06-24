@@ -16,11 +16,17 @@ import ESPullToRefresh
 import PinLayout
 
 extension Reactive where Base: TimelineView {
+    // Observable
     var pullToReflesh: Observable<Void> {
         return base.pullToRefleshSubject.asObserver()
     }
     
-    var pullToRefleshing: Binder<Bool> {
+    var loadMore: Observable<Void> {
+        return base.loadMoreSubject.asObservable()
+    }
+    
+    // Binder
+    var isPullToRefleshing: Binder<Bool> {
         return Binder(self.base) { view, refleshing in
             if !refleshing {
                 view.tableView.es.stopPullToRefresh()
@@ -28,6 +34,13 @@ extension Reactive where Base: TimelineView {
         }
     }
 
+    var isLoadingMore: Binder<Bool> {
+        return Binder(self.base) { view, loading in
+            if !loading {
+                view.tableView.es.stopLoadingMore()
+            }
+        }
+    }
 }
 
 final class TimelineView: UIView {
@@ -35,6 +48,7 @@ final class TimelineView: UIView {
     public let tableView = UITableView()
 
     fileprivate let pullToRefleshSubject = PublishSubject<Void>()
+    fileprivate let loadMoreSubject = PublishSubject<Void>()
     
     init() {
         super.init(frame: .zero)
@@ -45,6 +59,10 @@ final class TimelineView: UIView {
         
         tableView.es.addPullToRefresh { [weak self] in
             self?.pullToRefleshSubject.onNext(())
+        }
+        
+        tableView.es.addInfiniteScrolling { [weak self] in
+            self?.loadMoreSubject.onNext(())
         }
         
         addSubview(tableView)

@@ -18,6 +18,10 @@ final class TweetCellReactor: Reactor {
     
     let initialState: TweetCellReactor.State
     
+    var tweetId: Int64 {
+        return currentState.tweet.id
+    }
+    
     init(_ tweet: TweetEntity) {
         initialState = State(tweet: tweet)
     }

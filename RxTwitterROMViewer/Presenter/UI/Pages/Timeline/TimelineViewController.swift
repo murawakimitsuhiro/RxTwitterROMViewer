@@ -58,10 +58,14 @@ final class TimelineViewController: UIViewController , ReactorKit.View {
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
+        mainView.rx.loadMore
+            .map { Reactor.Action.loadMoreTweets }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
         
         // State
         reactor.state.map { $0.tweetCellReactors }
-//            .observeOn(MainScheduler.instance)
             .bind(to: mainView.tableView.rx.items(Reusable.tweetCell)) { _, reactor, cell in
                 cell.reactor = reactor
             }
@@ -69,10 +73,14 @@ final class TimelineViewController: UIViewController , ReactorKit.View {
         
         reactor.state.map { $0.isRefleshing }
             .distinctUntilChanged()
-//            .observeOn(MainScheduler.instance)
             .filter { !$0 }
-            .skip(1)
-            .bind(to: mainView.rx.pullToRefleshing)
+            .bind(to: mainView.rx.isPullToRefleshing)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.isLoading }
+            .distinctUntilChanged()
+            .filter { !$0 }
+            .bind(to: mainView.rx.isLoadingMore)
             .disposed(by: disposeBag)
     }
 }

@@ -10,9 +10,8 @@ import RxCocoa
 import RxSwift
 
 import TwitterKit
-import TwitterCore
 
-final class TwitterNetwork: TwitterAuthRepository, TweetsRepository {
+final class TwitterNetwork: TwitterAuthRepository, TweetsRepository {    
     
     enum ErrorType: Error {
         case unknownSession
@@ -21,7 +20,7 @@ final class TwitterNetwork: TwitterAuthRepository, TweetsRepository {
     }
     
     private enum Const {
-        static let baseUrl = URL(string: "https://api.twitter.com/1.1/statuses/")
+        static let baseUrl = URL(string: "https://api.twitter.com/1.1/")
     }
     
     private var loggedInClient: TWTRAPIClient? {
@@ -68,9 +67,20 @@ final class TwitterNetwork: TwitterAuthRepository, TweetsRepository {
         }
     }
     
-    func getTimeline(maxId: Int?) -> Single<[TweetEntity]> {
-        let url = URL(string: "home_timeline.json", relativeTo: Const.baseUrl)!
-        let param: [String: Any] = [:]
+    func getTimeline(maxId: Int64?, sinceId: Int64?) -> Single<[TweetEntity]> {
+        let url = URL(string: "statuses/home_timeline.json", relativeTo: Const.baseUrl)!
+        var param: [String: String] = [
+            "count": String(100),
+            "exclude_replies": String(true),
+        ]
+        
+        if let maxId = maxId {
+            param["max_id"] = String(maxId - 1)
+        }
+        
+        if let sinceId = sinceId {
+            param["since_id"] = String(sinceId)
+        }
         
         guard let client = loggedInClient else {
             return Single.error(ErrorType.notLoggedIn)
@@ -79,16 +89,16 @@ final class TwitterNetwork: TwitterAuthRepository, TweetsRepository {
         return client.rx.request(url: url,
                           method: .get,
                           params: param)
+            .catchError({ error in
+                print("Error!", error)
+                
+                throw error
+            })
             .map { data in
                 if let data = data,
                     let tweets = try? self.decoder.decode([TweetEntity].self, from: data) {
-                    
-                    print("get tweet", tweets.count)
-                    
                     return tweets
                 }
-                
-                print("tweets faild")
                 
                 throw ErrorType.responseDataEmpty
             }

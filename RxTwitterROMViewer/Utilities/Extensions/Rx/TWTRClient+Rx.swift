@@ -20,7 +20,7 @@ extension Reactive where Base: TWTRAPIClient {
         case delete = "DELETE"
     }
     
-    public func request(url: URL, method: Method = .get, params: [String: Any]? = [:]) -> Single<Data?> {
+    public func request(url: URL, method: Method = .get, params: [String: String]? = [:]) -> Single<Data?> {
         var error: NSError? = nil
         
         let request = base.urlRequest(withMethod: method.rawValue,

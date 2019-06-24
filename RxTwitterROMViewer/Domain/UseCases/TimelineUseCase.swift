@@ -16,7 +16,11 @@ final class TimelineUseCase {
         self.tweetsRepository = tweetsRepository
     }
     
-    public func getLatestTimeline() -> Single<[TweetEntity]> {
-        return tweetsRepository.getTimeline(maxId: nil)
+    public func getLatestTimeline(sinceId: Int64? = nil) -> Single<[TweetEntity]> {
+        return tweetsRepository.getTimeline(maxId: nil, sinceId: sinceId)
+    }
+    
+    public func getOldTimeline(olderTweetId maxId: Int64?) -> Single<[TweetEntity]> {
+        return tweetsRepository.getTimeline(maxId: maxId, sinceId: nil)
     }
 }

@@ -14,10 +14,11 @@ final class TimelineReactor: Reactor {
     
     enum Action {
         case reflseshTweets
+        case loadMoreTweets
     }
     
     enum Mutation {
-        case setLatestTweets([TweetEntity])
+        case setTweetReactors([TweetCellReactor])
         case setRefleshing(Bool)
         case setLoading(Bool)
     }
@@ -40,12 +41,30 @@ final class TimelineReactor: Reactor {
         switch action {
             
         case .reflseshTweets:
+            guard !currentState.isRefleshing else { return .empty() }
+            
             let startReflesh = Observable<Mutation>.just(Mutation.setRefleshing(true))
             let endReflesh = Observable<Mutation>.just(Mutation.setRefleshing(false))
-            let loadLatestTweet = timelineUseCase.getLatestTimeline()
+            
+            let currentTweetReactors = currentState.tweetCellReactors
+            let loadLatestTweets = timelineUseCase.getLatestTimeline(sinceId: currentTweetReactors.first?.tweetId)
                 .asObservable()
-                .map{ Mutation.setLatestTweets($0) }
-            return .concat([startReflesh, loadLatestTweet, endReflesh])
+                .map { tweetEntities in tweetEntities.map { TweetCellReactor($0) } }
+                .map { Mutation.setTweetReactors($0 + currentTweetReactors)}
+            return .concat([startReflesh, loadLatestTweets, endReflesh])
+            
+        case .loadMoreTweets:
+            guard !currentState.isLoading else { return .empty() }
+            
+            let startLoading = Observable.just(Mutation.setLoading(true))
+            let endLoading = Observable.just(Mutation.setLoading(false))
+            
+            let currentTweetReactors = currentState.tweetCellReactors
+            let loadOldTweets = timelineUseCase.getOldTimeline(olderTweetId: currentTweetReactors.last?.tweetId)
+                .asObservable()
+                .map { tweetEntities in tweetEntities.map { TweetCellReactor($0) } }
+                .map { Mutation.setTweetReactors(currentTweetReactors + $0) }
+            return .concat([startLoading, loadOldTweets, endLoading])
         }
     }
     
@@ -54,14 +73,12 @@ final class TimelineReactor: Reactor {
         
         switch mutation {
             
-        case let .setLatestTweets(tweetEntities):
-            state.tweetCellReactors = tweetEntities.map { TweetCellReactor($0) }
+        case let .setTweetReactors(tweetCellReactors):
+            state.tweetCellReactors = tweetCellReactors
             return state
             
         case let .setRefleshing(refleshing):
             state.isRefleshing = refleshing
-            
-            print("reflesh state ", refleshing)
             
             return state
             

@@ -10,5 +10,5 @@ import RxCocoa
 import RxSwift
 
 protocol TweetsRepository: class {
-    func getTimeline(maxId: Int?) -> Single<[TweetEntity]>
+    func getTimeline(maxId: Int64?, sinceId: Int64?) -> Single<[TweetEntity]>
 }

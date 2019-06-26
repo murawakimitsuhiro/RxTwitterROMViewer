@@ -12,7 +12,10 @@ import RxCocoa
 import ReactorKit
 
 final class TweetDetailReactor: Reactor {
+    
     enum Action {}
     
     struct State {}
+    
+    let initialState = State()
 }

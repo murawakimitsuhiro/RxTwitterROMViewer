@@ -16,7 +16,7 @@ final class TweetDetailViewController: UIViewController, ReactorKit.View {
     
     var disposeBag = DisposeBag()
    
-    var mainView: TweetDetailView { self.view as! TweetDetailView }
+    var mainView: TweetDetailView { return self.view as! TweetDetailView }
     
     init(reactor: TweetDetailReactor) {
         defer { self.reactor = reactor }

@@ -32,6 +32,7 @@
 		EAE6FFDD22C3768600FF2675 /* TweetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE6FFDC22C3768600FF2675 /* TweetDetailViewController.swift */; };
 		EAE6FFDF22C3769000FF2675 /* TweetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE6FFDE22C3769000FF2675 /* TweetDetailView.swift */; };
 		EAE6FFE122C3769B00FF2675 /* TweetDetailReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE6FFE022C3769A00FF2675 /* TweetDetailReactor.swift */; };
+		EAE6FFE322C3809100FF2675 /* TwitterMediaEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE6FFE222C3809100FF2675 /* TwitterMediaEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		EAE6FFDC22C3768600FF2675 /* TweetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetDetailViewController.swift; sourceTree = "<group>"; };
 		EAE6FFDE22C3769000FF2675 /* TweetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetDetailView.swift; sourceTree = "<group>"; };
 		EAE6FFE022C3769A00FF2675 /* TweetDetailReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetDetailReactor.swift; sourceTree = "<group>"; };
+		EAE6FFE222C3809100FF2675 /* TwitterMediaEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterMediaEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 			children = (
 				EAC3AF9B22BD478F00EE609D /* TweetEntity.swift */,
 				EA5156C222BF5932008FC429 /* TwitterUserEntity.swift */,
+				EAE6FFE222C3809100FF2675 /* TwitterMediaEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				EAD7E1DF22B9FDC700F223C7 /* LoginReactor.swift in Sources */,
 				EAC3AF9A22BD457100EE609D /* TweetsRepository.swift in Sources */,
 				EA70E9A922BC801A00B6892F /* TwitterNetwork.swift in Sources */,
+				EAE6FFE322C3809100FF2675 /* TwitterMediaEntity.swift in Sources */,
 				EAC3AF9622BD33F300EE609D /* TwitterNavigationBar.swift in Sources */,
 				EAD7E1D922B9F9EB00F223C7 /* TimelineReactor.swift in Sources */,
 				EA5156C322BF5932008FC429 /* TwitterUserEntity.swift in Sources */,

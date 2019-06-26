@@ -25,6 +25,7 @@ final class TwitterNavigationBar: UINavigationBar {
     private func setupViews() {
         isTranslucent = false
         barTintColor = Color.twitterBlue
+        tintColor = .white
         titleTextAttributes = [.foregroundColor: UIColor.white]
         setBackgroundImage(UIImage(), for: .default)
         shadowImage = UIImage()

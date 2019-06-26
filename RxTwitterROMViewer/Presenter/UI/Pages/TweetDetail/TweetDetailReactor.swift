@@ -15,7 +15,13 @@ final class TweetDetailReactor: Reactor {
     
     enum Action {}
     
-    struct State {}
+    struct State {
+        let tweet: TweetEntity
+    }
     
-    let initialState = State()
+    let initialState: State
+    
+    init(_ tweet: TweetEntity) {
+        initialState = State(tweet: tweet)
+    }
 }

@@ -65,8 +65,10 @@ final class TimelineViewController: UIViewController , ReactorKit.View {
         
         mainView.rx.tableCellSelected
             .map { reactor.currentState.tweetCellReactors[$0.row].currentState.tweet }
-            .subscribe(onNext: { tweet in
-                // TODO push tweetDetailVC
+            .subscribe(onNext: { [weak self] tweet in
+                let reactor = TweetDetailReactor(tweet)
+                let tweetViewController = TweetDetailViewController(reactor: reactor)
+                self?.navigationController?.pushViewController(tweetViewController, animated: true)
             })
             .disposed(by: disposeBag)
         

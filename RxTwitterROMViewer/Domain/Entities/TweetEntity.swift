@@ -17,11 +17,11 @@ struct TweetEntity: Codable {
         let media: [TwitterMedia]?
     }
     
-    public func mediaUrls(size: TwitterMedia.Size) -> [URL?] {
+    public func medias() -> [TwitterMedia] {
         if let medias = entities.media {
-            return medias.map{ $0.mediaUrl(size: size) }
+            return medias
         }
         
-        return [URL]()
+        return [TwitterMedia]()
     }
 }

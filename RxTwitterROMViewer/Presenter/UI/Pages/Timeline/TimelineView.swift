@@ -25,6 +25,10 @@ extension Reactive where Base: TimelineView {
         return base.loadMoreSubject.asObservable()
     }
     
+    var tableCellSelected: Observable<IndexPath> {
+        return base.tableView.rx.itemSelected.asObservable()
+    }
+    
     // Binder
     var isPullToRefleshing: Binder<Bool> {
         return Binder(self.base) { view, refleshing in

@@ -21,7 +21,13 @@ extension Reactive where Base: TweetDetailView {
             self.base.userNameLabel.text = tweet.user.name
             self.base.createdDateLabel.text = "1時間前" // tweet.createdAt.description
             self.base.contentLabel.text = tweet.text
-            self.base.mediaImageView.kf.setImage(with: tweet.medias().first?.mediaUrl(size: .medium))
+            if let media = tweet.medias().first {
+                self.base.mediaAspectRatio = CGFloat(media.aspectRatio)
+                self.base.mediaImageView.kf.setImage(with: media.mediaUrl(size: .medium))
+                self.base.mediaImageView.isHidden = false
+            } else {
+                self.base.mediaImageView.isHidden = true
+            }
         }
     }
 }
@@ -30,7 +36,7 @@ final class TweetDetailView: UIView {
     
     private enum Const {
         static let contentMargin = CGFloat(20)
-        static let iconSize = CGSize(width: 60, height: 60)
+        static let iconSize = CGSize(width: 50, height: 50)
         static let iconCornerRadius = CGFloat(10)
         static let userNameFont = UIFont.systemFont(ofSize: 16, weight: .medium)
         static let dateFont = UIFont.systemFont(ofSize: 14, weight: .medium)
@@ -43,6 +49,8 @@ final class TweetDetailView: UIView {
     fileprivate let contentLabel = UILabel()
     fileprivate let mediaImageView = UIImageView()
     
+    fileprivate var mediaAspectRatio: CGFloat = 1.0
+    
     init() {
         super.init(frame: .zero)
         
@@ -52,20 +60,21 @@ final class TweetDetailView: UIView {
         userNameLabel.font = Const.userNameFont
         
         createdDateLabel.font = Const.dateFont
-        createdDateLabel.textColor = Color.blakcHaze
+        createdDateLabel.textColor = Color.starDust
         
         contentLabel.font = Const.contentFont
         contentLabel.numberOfLines = 0
         
-        // debug
-        userNameLabel.backgroundColor = .red
-        createdDateLabel.backgroundColor = .blue
+        mediaImageView.backgroundColor = Color.blakcHaze
+        mediaImageView.layer.masksToBounds = true
+        mediaImageView.layer.cornerRadius = 8
         
         backgroundColor = .white
         addSubview(iconImageView)
         addSubview(userNameLabel)
         addSubview(createdDateLabel)
         addSubview(contentLabel)
+        addSubview(mediaImageView)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -84,12 +93,18 @@ final class TweetDetailView: UIView {
             .sizeToFit()
         
         createdDateLabel.pin
-            .after(of: userNameLabel, aligned: .center).marginHorizontal(Const.contentMargin/2)
+            .vCenter(to: userNameLabel.edge.vCenter)
             .sizeToFit()
+            .right(Const.contentMargin)
         
         contentLabel.pin
             .below(of: iconImageView).marginTop(Const.contentMargin/2)
             .left().right().marginHorizontal(Const.contentMargin)
             .sizeToFit(.width)
+        
+        mediaImageView.pin
+            .top(to: contentLabel.edge.bottom).marginTop(Const.contentMargin/2)
+            .left().right().marginHorizontal(Const.contentMargin)
+            .aspectRatio(mediaAspectRatio)
     }
 }

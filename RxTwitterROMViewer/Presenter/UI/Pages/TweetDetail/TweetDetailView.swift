@@ -11,6 +11,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
+import SwiftDate
 import PinLayout
 
 extension Reactive where Base: TweetDetailView {
@@ -19,7 +20,7 @@ extension Reactive where Base: TweetDetailView {
         return Binder(self.base) { view, tweet in
             self.base.iconImageView.kf.setImage(with: tweet.user.profileImageURL)
             self.base.userNameLabel.text = tweet.user.name
-            self.base.createdDateLabel.text = "1時間前" // tweet.createdAt.description
+            self.base.createdDateLabel.text = DateInRegion(tweet.createdAt).toRelative()
             self.base.contentLabel.text = tweet.text
             if let media = tweet.medias().first {
                 self.base.mediaAspectRatio = CGFloat(media.aspectRatio)

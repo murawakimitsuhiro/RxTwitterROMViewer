@@ -21,6 +21,7 @@ final class TwitterNetwork: TwitterAuthRepository, TweetsRepository {
     
     private enum Const {
         static let baseUrl = URL(string: "https://api.twitter.com/1.1/")
+        static let maxRetryCount = 3
     }
     
     private var loggedInClient: TWTRAPIClient? {
@@ -89,6 +90,20 @@ final class TwitterNetwork: TwitterAuthRepository, TweetsRepository {
         return client.rx.request(url: url,
                           method: .get,
                           params: param)
+            .retryWhen({ errorObserver in
+                return errorObserver.enumerated()
+                    .flatMap { retryCount, error -> Single<Void> in
+                        guard retryCount < Const.maxRetryCount else {
+                            return .error(error)
+                        }
+                        
+                        // TODO : Debug
+                        print("retry....\(retryCount),,,")
+                        dump(error)
+                        
+                        return Single.just(())
+                    }
+            })
             .catchError({ error in
                 print("Error TwitterNetwork", error)
                 

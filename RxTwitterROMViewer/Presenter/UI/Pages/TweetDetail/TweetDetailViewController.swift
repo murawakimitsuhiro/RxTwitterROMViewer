@@ -32,6 +32,9 @@ final class TweetDetailViewController: UIViewController, ReactorKit.View {
     }
     
     func bind(reactor: TweetDetailReactor) {
-    
+        // State
+        reactor.state.map { $0.tweet }
+            .bind(to: mainView.rx.tweet)
+            .disposed(by: disposeBag)
     }
 }

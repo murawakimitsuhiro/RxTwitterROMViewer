@@ -18,9 +18,11 @@ import PinLayout
 final class TweetCell: UITableViewCell, ReactorKit.View {
     
     private enum Const {
-        static let contentPadding = CGFloat(10)
+        static let contentMargin = CGFloat(10)
         static let iconSize = CGSize(width: 30, height: 30)
         static let iconRadius = 6
+        static let nameFont = UIFont.systemFont(ofSize: 14, weight: .medium)
+        static let contentFont = UIFont.systemFont(ofSize: 15, weight: .light)
     }
     
     var disposeBag = DisposeBag()
@@ -35,9 +37,9 @@ final class TweetCell: UITableViewCell, ReactorKit.View {
         iconImageView.layer.masksToBounds = true
         iconImageView.layer.cornerRadius = 6
         
-        nameLabel.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        nameLabel.font = Const.nameFont
         
-        contentLabel.font = UIFont.systemFont(ofSize: 15, weight: .light)
+        contentLabel.font = Const.contentFont
         contentLabel.numberOfLines = 0
         
         separatorInset = .zero
@@ -66,18 +68,18 @@ final class TweetCell: UITableViewCell, ReactorKit.View {
         super.layoutSubviews()
         
         iconImageView.pin
-            .topLeft(Const.contentPadding)
+            .topLeft(Const.contentMargin)
             .size(Const.iconSize)
         
         nameLabel.pin
             .after(of: iconImageView, aligned: .center)
             .right()
-            .marginHorizontal(Const.contentPadding)
+            .marginHorizontal(Const.contentMargin)
             .sizeToFit(.width)
         
         contentLabel.pin
-            .below(of: iconImageView).marginTop(Const.contentPadding/2)
-            .left().right().marginHorizontal(Const.contentPadding)
+            .below(of: iconImageView).marginTop(Const.contentMargin/2)
+            .left().right().marginHorizontal(Const.contentMargin)
             .sizeToFit(.width)
     }
     
@@ -89,7 +91,7 @@ final class TweetCell: UITableViewCell, ReactorKit.View {
         
         return CGSize(
             width: contentView.frame.width,
-            height: contentLabel.frame.maxY + Const.contentPadding
+            height: contentLabel.frame.maxY + Const.contentMargin
         )
     }
 }

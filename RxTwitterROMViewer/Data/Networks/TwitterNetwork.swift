@@ -90,7 +90,7 @@ final class TwitterNetwork: TwitterAuthRepository, TweetsRepository {
                           method: .get,
                           params: param)
             .catchError({ error in
-                print("Error!", error)
+                print("Error TwitterNetwork", error)
                 
                 throw error
             })

@@ -13,15 +13,10 @@ import RxSwift
 import RxViewController
 
 import ReactorKit
-import ReusableKit
 
 final class TimelineViewController: UIViewController , ReactorKit.View {
     
     var disposeBag = DisposeBag()
-    
-    enum Reusable {
-        static let tweetCell = ReusableCell<TweetCell>()
-    }
     
     private var mainView: TimelineView {
         return self.view as! TimelineView
@@ -29,8 +24,6 @@ final class TimelineViewController: UIViewController , ReactorKit.View {
     
     override func loadView() {
         self.view = TimelineView()
-        
-        mainView.tableView.register(Reusable.tweetCell)
     }
     
     init() {
@@ -73,10 +66,8 @@ final class TimelineViewController: UIViewController , ReactorKit.View {
             .disposed(by: disposeBag)
         
         // State
-        reactor.state.map { $0.tweetCellReactors }
-            .bind(to: mainView.tableView.rx.items(Reusable.tweetCell)) { _, reactor, cell in
-                cell.reactor = reactor
-            }
+        let tweetsDataSource = reactor.state.map { $0.tweetCellReactors }
+        mainView.rx.setTweetDataSource(tweetsDataSource)
             .disposed(by: disposeBag)
         
         reactor.state.map { $0.isRefleshing }

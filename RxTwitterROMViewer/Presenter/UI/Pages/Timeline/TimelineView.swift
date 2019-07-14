@@ -45,14 +45,25 @@ extension Reactive where Base: TimelineView {
             }
         }
     }
+    
+    // Disposable
+    func setTweetDataSource(_ source: Observable<[TweetCellReactor]>) -> Disposable {
+        return source.bind(to: base.tableView.rx.items(Base.Reusable.tweetCell)) { _, reactor, cell in
+                cell.reactor = reactor
+        }
+    }
 }
 
 final class TimelineView: UIView {
     
-    public let tableView = UITableView()
+    fileprivate let tableView = UITableView()
 
     fileprivate let pullToRefleshSubject = PublishSubject<Void>()
     fileprivate let loadMoreSubject = PublishSubject<Void>()
+    
+    enum Reusable {
+        static let tweetCell = ReusableCell<TweetCell>()
+    }
     
     init() {
         super.init(frame: .zero)
@@ -60,6 +71,7 @@ final class TimelineView: UIView {
         tableView.estimatedRowHeight = 90
         tableView.rowHeight = UITableView.automaticDimension
         tableView.backgroundColor = Color.blakcHaze
+        tableView.register(Reusable.tweetCell)
         
         tableView.es.addPullToRefresh { [weak self] in
             self?.pullToRefleshSubject.onNext(())

@@ -44,6 +44,13 @@ final class TwitterNetwork: TwitterAuthRepository, TweetsRepository {
         self.decoder = decoder
     }
 
+// WIP
+//    public func request<T>(endPoint: String,
+//                           param: [String: String] = [:],
+//                           responseType: T.Type) throws -> T where T : Decodable {
+//
+//    }
+
     public func hasLoggedInUser() -> Bool {
         return TWTRTwitter.sharedInstance().sessionStore.hasLoggedInUsers()
     }

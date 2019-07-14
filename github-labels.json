@@ -1,0 +1,42 @@
+[
+  {
+    "name": "[feature] Layout",
+    "color": "45aaf2",
+    "aliases": []
+  },
+  {
+    "name": "[feature] Logic",
+    "color": "45aaf2",
+    "aliases": []
+  },
+  {
+    "name": "[fix] Layout",
+    "color": "fc5c65",
+    "aliases": []
+  },
+  {
+    "name": "[fix] Logic",
+    "color": "fc5c65",
+    "aliases": []
+  },
+  {
+    "name": "[waiting] デザイン",
+    "color": "fed330",
+    "aliases": []
+  },
+  {
+    "name": "[waiting] API",
+    "color": "fed330",
+    "aliases": []
+  },
+  {
+    "name": "[waiting] 仕様QA",
+    "color": "fed330",
+    "aliases": []
+  },
+  {
+    "name": "[improve] Refactoring",
+    "color": "2bcbba",
+    "aliases": []
+  }
+]

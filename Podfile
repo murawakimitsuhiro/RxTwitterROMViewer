@@ -24,7 +24,7 @@ target 'RxTwitterROMViewer' do
 
   # UI
   pod 'PinLayout'
-  pod "ESPullToRefresh"
+  pod 'ESPullToRefresh'
   pod 'TTTAttributedLabel'
 
 end

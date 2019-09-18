@@ -28,8 +28,7 @@ final class TimelineViewController: UIViewController , ReactorKit.View {
     
     init() {
         defer {
-            let tlUseCase = TimelineUseCase(tweetsRepository: TwitterNetwork())
-            self.reactor = TimelineReactor(timelineUseCase: tlUseCase)
+            self.reactor = TimelineReactor()
         }
         super.init(nibName: nil, bundle: nil)
         
@@ -41,13 +40,15 @@ final class TimelineViewController: UIViewController , ReactorKit.View {
     }
     
     func bind(reactor: TimelineReactor) {
-        // Action
-        Observable
-            .merge(
-                rx.viewWillAppear.map { _ in } ,
-                mainView.rx.pullToReflesh.map {}
-            )
+        // LyfeCycle
+        rx.viewWillAppear
             .map { _ in Reactor.Action.reflseshTweets }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        // Action
+        mainView.rx.pullToReflesh
+            .map { Reactor.Action.reflseshTweets }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
@@ -66,9 +67,10 @@ final class TimelineViewController: UIViewController , ReactorKit.View {
             .disposed(by: disposeBag)
         
         // State
-        let tweetsDataSource = reactor.state.map { $0.tweetCellReactors }
-        mainView.rx.setTweetDataSource(tweetsDataSource)
+        mainView.rx.setTweetDataSource(reactor.state.map { $0.tweetCellReactors })
             .disposed(by: disposeBag)
+//        mainView.rx.setTweetDataSource(reactor.tweetCellReactors)
+//            .disposed(by: disposeBag)
         
         reactor.state.map { $0.isRefleshing }
             .distinctUntilChanged()

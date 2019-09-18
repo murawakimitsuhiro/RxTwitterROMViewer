@@ -27,8 +27,7 @@ final class LoginViewController: UIViewController , ReactorKit.View {
     
     init() {
         defer {
-            let authUseCase = AuthUseCase(twitterAuthRepository: TwitterNetwork())
-            self.reactor = LoginReactor(authUseCase: authUseCase)
+            self.reactor = LoginReactor()
         }
         
         super.init(nibName: nil, bundle: nil)

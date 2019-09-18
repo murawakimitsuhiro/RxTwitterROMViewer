@@ -13,17 +13,10 @@ import TwitterKit
 
 extension Reactive where Base: TWTRAPIClient {
     
-    public enum Method: String {
-        case get = "GET"
-        case post = "POST"
-        case put = "PUT"
-        case delete = "DELETE"
-    }
-    
-    public func request(url: URL, method: Method = .get, params: [String: String]? = [:]) -> Single<Data?> {
+    public func request(url: URL, method: String, params: [String: String]? = [:]) -> Single<Data?> {
         var error: NSError? = nil
         
-        let request = base.urlRequest(withMethod: method.rawValue,
+        let request = base.urlRequest(withMethod: method,
                         urlString: url.absoluteString,
                         parameters: params,
                         error: &error)

@@ -19,8 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         TWTRTwitter.sharedInstance().start(withConsumerKey: "0sZ5C9fiDcgnrEtkFNd4941gD", consumerSecret: "I8x8GA1ESAW2cvDqE7lFJ6smmxQ0xBPgqy4dlJGBGdRbBPLbHm")
         
-        let authUseCase = AuthUseCase(twitterAuthRepository: TwitterNetwork())
-        if authUseCase.hasLoginUser {
+        if TwitterAuthUseCase.shared.hasLoginUser {
             let timelineVC = TimelineViewController()
             let navC = UINavigationController(navigationBarClass: TwitterNavigationBar.self, toolbarClass: UIToolbar.self)
             navC.setViewControllers([timelineVC], animated: false)
@@ -36,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func initWindow(rootViewController: UIViewController) {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-         window?.rootViewController = rootViewController
+        window?.rootViewController = rootViewController
     }
   
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {

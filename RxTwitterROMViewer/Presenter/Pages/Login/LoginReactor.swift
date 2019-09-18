@@ -26,16 +26,10 @@ final class LoginReactor: Reactor {
         var isLoggedIn: Bool
     }
     
-    private let authUseCase: AuthUseCase
-    
-    init(authUseCase: AuthUseCase) {
-        self.authUseCase = authUseCase
-    }
-    
     func mutate(action: LoginReactor.Action) -> Observable<LoginReactor.Mutation> {
         switch action {
         case .login:
-            return authUseCase.loginTwitter()
+            return TwitterAuthUseCase.shared.loginTwitter()
                 .asObservable()
                 .map { true }
                 .catchErrorJustReturn(false)
